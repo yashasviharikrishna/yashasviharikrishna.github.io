@@ -1,0 +1,14 @@
+version: "3"
+services:
+  portfolio:
+    build: .
+    volumes:
+      - ./portfolio:/app
+    stdin_open: true
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "8080:8080"
+    entrypoint: 'yarn run serve'
+#    entrypoint: 'tail -f /dev/null'
